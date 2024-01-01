@@ -1,7 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { WorldMapComponent } from './components/world-map/world-map.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  {path: '', component: WorldMapComponent}
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
