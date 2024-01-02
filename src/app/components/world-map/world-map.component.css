@@ -24,7 +24,3 @@ ul {
     width: 30%;
 }
 
-path:hover {
-    fill: rgb(32, 222, 194);
-    stroke: blue;
-}
