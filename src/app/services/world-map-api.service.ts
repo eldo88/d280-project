@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
+import { Subject, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -18,23 +18,20 @@ export class WorldMapApiService {
     console.log(country);
     let subject = new Subject();
 
-    if (country === 'sj'){
-      subject.next({
-        errorMessage: 'Invalid parameter'
-      })
-    } else {
-        this.getCountryData(country).subscribe((data: any) => {
-          subject.next({
-            countryName: data[1][0].name,
-            capitalCity: data[1][0].capitalCity,
-            region: data[1][0].region.value,
-            latitude: data[1][0].latitude,
-            longitude: data[1][0].longitude,
-            incomeLevel: data[1][0].incomeLevel.value
-          })
-        }
-      );
-    }
+    this.getCountryData(country).subscribe((data: any) => {
+      if (data[0].message) {
+        subject.next({errorMessage: data[0].message[0].value})
+      } else {
+        subject.next({
+          countryName: data[1][0].name,
+          capitalCity: data[1][0].capitalCity,
+          region: data[1][0].region.value,
+          latitude: data[1][0].latitude,
+          longitude: data[1][0].longitude,
+          incomeLevel: data[1][0].incomeLevel.value
+        })
+      }
+    });
     return subject.asObservable();
   }
 }
