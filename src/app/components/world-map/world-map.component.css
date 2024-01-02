@@ -3,18 +3,28 @@ main {
     align-items: center;
     justify-content: space-around;
     flex-wrap: wrap;
-    margin-top: 10%;
+    margin-top: 10%; 
     max-width: 100%;
+}
+
+.world-map-svg {
+    width: 50%;
+}
+
+ul {
+    list-style: none;
+    text-align: left;
 }
 
 .country-details {
     text-align: center;
-    background-color: gainsboro;
+    background-color: lightgray;
     border-radius: 25px;
-    width: 24%;
+    box-shadow: 0 4px 8px hsla(0, 100%, 0%, 0.302);
+    width: 30%;
 }
 
 path:hover {
-    fill: red;
+    fill: rgb(32, 222, 194);
     stroke: blue;
 }

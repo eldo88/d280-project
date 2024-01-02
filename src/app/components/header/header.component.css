@@ -1,0 +1,12 @@
+.app-header{
+    padding: 20px;
+    margin: 0;
+    box-shadow: 0 4px 8px hsla(0, 100%, 0%, 0.302);
+    border-radius: 0px 0px 5px 5px;
+    background: linear-gradient(to bottom, rgb(34, 43, 157), rgb(121, 118, 140));
+} 
+
+header {
+    text-align: center;
+    height: 100%;
+}
