@@ -20,10 +20,6 @@ export class WorldMapComponent {
     });
   }
 
-  removeCountryData() {
-    this.countryData.name = '';
-  }
-
   ngAfterViewInit(): void {
     const objectElement = this.el.nativeElement.querySelector('object');
 
@@ -53,7 +49,6 @@ export class WorldMapComponent {
           path.addEventListener('mouseleave', () => {
             path.style.fill = '';
             path.style.stroke = '';
-            this.removeCountryData();
           });
         });
       }
