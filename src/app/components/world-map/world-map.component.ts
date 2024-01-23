@@ -24,7 +24,7 @@ export class WorldMapComponent {
     const objectElement = this.el.nativeElement.querySelector('object');
 
     objectElement.addEventListener('load', () => {
-
+      console.log('loaded');
       const svgDoc = objectElement.contentDocument;
       if (svgDoc) {
         const paths = svgDoc.querySelectorAll('path');
@@ -34,6 +34,7 @@ export class WorldMapComponent {
           path.addEventListener('mouseenter', () => {
             path.style.fill = 'rgb(32, 222, 194)';
             path.style.stroke = 'blue';
+            console.log('mouseentered');
 
             const syntheticEvent = new MouseEvent('mouseenter', {
               bubbles: true,
@@ -41,7 +42,10 @@ export class WorldMapComponent {
               view: window
             });
 
-            Object.defineProperty(syntheticEvent, 'target', { value: path, writable: false });
+            Object.defineProperty(syntheticEvent, 'target', { 
+              value: path, 
+              writable: false 
+            });
 
             this.setCountryData(syntheticEvent);
           });
@@ -49,6 +53,7 @@ export class WorldMapComponent {
           path.addEventListener('mouseleave', () => {
             path.style.fill = '';
             path.style.stroke = '';
+            console.log('mouseleave');
           });
         });
       }
